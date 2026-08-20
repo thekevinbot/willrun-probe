@@ -27,3 +27,12 @@ jobs:
 
   call-nested:
     uses: ./.github/workflows/names-mid.yml
+
+  call-skipped:
+    if: false
+    uses: ./.github/workflows/names-reusable.yml
+
+  call-skipped-named:
+    name: Skipped Caller
+    if: false
+    uses: ./.github/workflows/names-reusable.yml

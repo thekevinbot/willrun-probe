@@ -142,3 +142,12 @@ jobs:
           - a: "2"
     steps:
       - run: echo include-only2
+
+  m-skipped:
+    if: false
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x, y]
+    steps:
+      - run: echo skipped-matrix
