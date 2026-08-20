@@ -24,3 +24,6 @@ jobs:
     uses: ./.github/workflows/names-reusable.yml
     with:
       tag: ${{ matrix.v }}
+
+  call-nested:
+    uses: ./.github/workflows/names-mid.yml
