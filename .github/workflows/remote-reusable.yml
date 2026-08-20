@@ -18,7 +18,7 @@ on:
         required: false
         default: ""
 jobs:
-  r-inner:
+  r-inner-at-main:
     runs-on: ubuntu-latest
     steps:
       - run: echo "r-inner ${{ inputs.tag }}"

@@ -12,7 +12,7 @@ name: remote-inner
 on:
   workflow_call: {}
 jobs:
-  deep-at-v0:
+  deep-at-main:
     runs-on: ubuntu-latest
     steps:
       - run: echo deep
