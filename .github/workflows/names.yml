@@ -183,3 +183,10 @@ jobs:
             b: q
     steps:
       - run: echo overwrite
+
+  m-skipped-expr:
+    name: sk ${{ github.event_name }}
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo skipped-expr
