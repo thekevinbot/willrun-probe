@@ -151,3 +151,35 @@ jobs:
         a: [x, y]
     steps:
       - run: echo skipped-matrix
+
+  m-skipped-named:
+    name: Skipped ${{ matrix.a }}
+    if: false
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x, y]
+    steps:
+      - run: echo skipped-named
+
+  m-include-noaxis:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x, y]
+        include:
+          - extra: e
+    steps:
+      - run: echo "${{ matrix.extra }}"
+
+  m-include-overwrite:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x, y]
+        b: [p]
+        include:
+          - a: x
+            b: q
+    steps:
+      - run: echo overwrite
