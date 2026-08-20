@@ -99,3 +99,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo expr
+
+  m-expr-name:
+    name: ev ${{ github.event_name }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x, y]
+    steps:
+      - run: echo expr-matrix
+
+  m-partial-name:
+    name: p ${{ matrix.a }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x]
+        b: ["1", "2"]
+    steps:
+      - run: echo partial
+
+  m-include2:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        a: [x]
+        include:
+          - a: x
+            extra: e1
+          - a: z
+            extra: e2
+    steps:
+      - run: echo include2
+
+  m-include-only2:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - a: "1"
+            b: one
+          - a: "2"
+    steps:
+      - run: echo include-only2
